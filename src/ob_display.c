@@ -18,18 +18,14 @@
 #include "icewm-menu.h"
 
 const gchar *default_template =
-    "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>"
-    "<openbox_pipe_menu xmlns=\"http://openbox.org/\""
-    "  xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\""
-    "  xsi:schemaLocation=\"http://openbox.org/\" >"
-    "%MENU%</openbox_pipe_menu>\n";
+    "%MENU%";
 
 /****f* ob_display/menu_directory
  * FUNCTION
  *   create a menu entry for a directory.
  *
  * NOTES
- *   this menu entry has to be closed by "</menu>".
+ *   this menu entry has to be closed by "}".
  ****/
 void
 menu_directory (MenuCacheApp *dir, OB_Menu *context)
@@ -43,16 +39,16 @@ menu_directory (MenuCacheApp *dir, OB_Menu *context)
 		gchar *dir_icon = item_icon_path (MENU_CACHE_ITEM(dir));
 
 		g_string_append_printf (context->builder,
-		    "<menu id=\"openbox-%s\" label=\"%s\" icon=\"%s\">\n",
-		    dir_id, dir_name, dir_icon);
+		    "menu \"%s\" \"%s\" {\n",
+		    dir_name, dir_icon);
 		g_free (dir_icon);
 	}
 	else
 #endif
 	{
 		g_string_append_printf (context->builder,
-	      "<menu id=\"openbox-%s\" label=\"%s\">\n",
-	      dir_id, dir_name);
+	      "menu \"%s\" folder {\n",
+	      dir_name);
 	}
 
 	g_free (dir_id);
@@ -113,16 +109,16 @@ menu_application (MenuCacheApp *app, OB_Menu *context)
 	{
 		exec_icon = item_icon_path (MENU_CACHE_ITEM(app));
 		g_string_append_printf (context->builder,
-	      "<item label=\"%s\" icon=\"%s\"><action name=\"Execute\">",
-	      exec_name,
-	      exec_icon);
+		"prog \"%s\" \"%s\" ",
+		exec_name,
+		exec_icon);
 	}
 	else
 #endif
 	{
 		g_string_append_printf (context->builder,
-	      "<item label=\"%s\"><action name=\"Execute\">",
-	      exec_name);
+		"prog \"%s\" app ",
+		exec_name);
 	}
 
 	if (context->sn && menu_cache_app_get_use_sn (app))
@@ -131,12 +127,12 @@ menu_application (MenuCacheApp *app, OB_Menu *context)
 
 	if (menu_cache_app_get_use_terminal (app))
 		g_string_append_printf (context->builder,
-	        "<command><![CDATA[%s %s]]></command>\n</action></item>\n",
+	        "%s %s\n",
 	        context->terminal_cmd,
 	        exec_cmd);
 	else
 		g_string_append_printf (context->builder,
-	        "<command><![CDATA[%s]]></command>\n</action></item>\n",
+	        "%s\n",
 	        exec_cmd);
 
 	g_free (exec_name);
@@ -162,11 +158,11 @@ menu_generate (MenuCacheDir *dir, OB_Menu *context)
 			case MENU_CACHE_TYPE_DIR:
 				menu_directory (l->data, context);
 				menu_generate (MENU_CACHE_DIR(l->data), context);
-				g_string_append (context->builder, "</menu>\n");
+				g_string_append (context->builder, "}\n");
 				break;
 
 			case MENU_CACHE_TYPE_SEP:
-				g_string_append (context->builder, "<separator />\n");
+				g_string_append (context->builder, "separator\n");
 				break;
 
 			case MENU_CACHE_TYPE_APP:

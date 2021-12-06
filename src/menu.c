@@ -22,7 +22,7 @@
 #include <locale.h>
 #include <stdlib.h>
 
-#include "openbox-menu.h"
+#include "icewm-menu.h"
 
 GMainLoop *loop = NULL;
 
@@ -120,7 +120,7 @@ configure (int argc, char **argv)
 	};
 	GOptionContext *help_context = NULL;
 
-	help_context = g_option_context_new (" - Openbox menu generator " VERSION);
+	help_context = g_option_context_new (" - IceWM menu generator " VERSION);
 	g_option_context_set_help_enabled (help_context, TRUE);
 	g_option_context_add_main_entries (help_context, entries, NULL);
 	g_option_context_parse (help_context, &argc, &argv, &error);
@@ -135,7 +135,7 @@ configure (int argc, char **argv)
 	OB_Menu *context = context_new();
 
 	if (output)
-		context->output = g_build_filename (g_get_user_cache_dir (), output, NULL);
+		context->output = g_build_filename (g_get_home_dir (), ".icewm", output, NULL);
 	else
 		context->output =  NULL;
 

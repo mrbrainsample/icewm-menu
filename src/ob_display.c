@@ -15,7 +15,7 @@
 //      Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 //      MA 02110-1301, USA.
 
-#include "openbox-menu.h"
+#include "icewm-menu.h"
 
 const gchar *default_template =
     "<?xml version=\"1.0\" encoding=\"UTF-8\" ?>"

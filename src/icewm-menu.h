@@ -17,8 +17,8 @@
  *      MA 02110-1301, USA.
  */
 
-#ifndef __OPENBOXMENU_APP__
-#define __OPENBOXMENU_APP__
+#ifndef __ICEWMMENU_APP__
+#define __ICEWMMENU_APP__
 
 #include <menu-cache.h>
 
@@ -26,7 +26,7 @@
 	#include <gtk/gtk.h>
 #endif
 
-#define VERSION "0.8.1"
+#define VERSION "0.8.2"
 #define APPMENU_SIZE 30
 #define TERMINAL_CMD "xterm -e"
 
@@ -83,4 +83,4 @@ gboolean context_get_persistent (OB_Menu*);
 
 void context_free(OB_Menu *);
 
-#endif // __OPENBOXMENU_APP__
+#endif // __ICEWMMENU_APP__

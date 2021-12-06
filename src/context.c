@@ -1,4 +1,4 @@
-#include "openbox-menu.h"
+#include "icewm-menu.h"
 
 OB_Menu*
 context_new()

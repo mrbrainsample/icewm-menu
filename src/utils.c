@@ -23,7 +23,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-#include "openbox-menu.h"
+#include "icewm-menu.h"
 
 /****f* utils/get_default_application_menu
  * FUNCTION

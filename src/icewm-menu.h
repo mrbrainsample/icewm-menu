@@ -63,7 +63,6 @@ typedef struct {
 gchar *get_default_application_menu ();
 guint app_is_visible (MenuCacheApp *, guint32);
 gchar *clean_exec (MenuCacheApp *);
-gchar *safe_name (const char *);
 gchar *item_icon_path (MenuCacheItem*);
 guint32 get_current_desktop_flag ();
 void add_current_desktop_to_context (MenuCache *, OB_Menu *);

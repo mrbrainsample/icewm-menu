@@ -30,8 +30,7 @@ const gchar *default_template =
 void
 menu_directory (MenuCacheApp *dir, OB_Menu *context)
 {
-	gchar *dir_id = safe_name (menu_cache_item_get_id (MENU_CACHE_ITEM(dir)));
-	gchar *dir_name = safe_name (menu_cache_item_get_name (MENU_CACHE_ITEM(dir)));
+	gchar *dir_name = (gchar *)menu_cache_item_get_name (MENU_CACHE_ITEM(dir));
 
 #ifdef WITH_ICONS
 	if (!context->no_icons)
@@ -51,7 +50,6 @@ menu_directory (MenuCacheApp *dir, OB_Menu *context)
 	      dir_name);
 	}
 
-	g_free (dir_id);
 	g_free (dir_name);
 }
 
@@ -60,7 +58,7 @@ gchar* get_item_comment (MenuCacheItem*, gboolean);
 gchar*
 get_item_name (MenuCacheItem* item, gboolean alternate)
 {
-   char* s = safe_name (menu_cache_item_get_name(item));
+   char* s = (gchar *)menu_cache_item_get_name(item);
 
    if (s == NULL && alternate == TRUE) {
        return get_item_comment(item, FALSE);
@@ -73,7 +71,7 @@ get_item_name (MenuCacheItem* item, gboolean alternate)
 gchar*
 get_item_comment (MenuCacheItem* item, gboolean alternate)
 {
-   char* s = safe_name (menu_cache_item_get_comment(item));
+   char* s = (gchar *)menu_cache_item_get_comment(item);
 
    if (s == NULL && alternate == TRUE) {
        return get_item_name(item, FALSE);

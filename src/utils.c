@@ -1,4 +1,4 @@
-//      utils.c - this file is part of openbox-menu
+//      utils.c - this file is part of icewm-menu
 //      Copyright (C) 2010-15 Fabrice THIROUX <fabrice.thiroux@free.fr>
 //
 //      This program is free software; you can redistribute it and/or modify
@@ -176,7 +176,7 @@ clean_exec (MenuCacheApp *app)
  *   The returned string should be freed when no longer needed
  *
  * NOTES
- *   Imlib2, used by OpenBox to display icons, doesn't load SVG graphics.
+ *   Imlib2, used by icewm to display icons, doesn't load SVG graphics.
  *   We have to use GTK_ICON_LOOKUP_NO_SVG flag to look up icons.
  *
  * TODO

@@ -1,4 +1,4 @@
-//      openbox-menu - a dynamic menu for openbox
+//      icewm-menu - a dynamic menu for icewm
 //      Copyright (C) 2010-15 Fabrice THIROUX <fabrice.thiroux@free.fr>
 //
 //      This program is free software; you can redistribute it and/or modify
@@ -35,7 +35,7 @@ void sig_term_handler (int sig)
 
 
 
-/****f* openbox-menu/check_application_menu
+/****f* icewm-menu/check_application_menu
  * FUNCTION
  *   Test if menu file exists.
  *
@@ -111,7 +111,7 @@ configure (int argc, char **argv)
 		{ "output",    'o', 0, G_OPTION_ARG_STRING, &output,
 		  "file to write data to", NULL },
 		{ "template",    'T', 0, G_OPTION_ARG_STRING, &template,
-		  "Use filename as template for openbox-menu output", NULL },
+		  "Use filename as template for icewm-menu output", NULL },
 		{ "noicons", 'i',   0, G_OPTION_ARG_NONE,   &no_icons,
 		  "Don't display icons in menu", NULL },
 		{ G_OPTION_REMAINING, 0, 0, G_OPTION_ARG_STRING_ARRAY, &app_menu,

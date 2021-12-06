@@ -1,5 +1,5 @@
 /*
- *      openbox-menu.h - this file is part of openbox-menu
+ *      icewm-menu.h - this file is part of icewm-menu
  *      Copyright (C) 2010-15 Fabrice THIROUX <fabrice.thiroux@free.fr>
  *
  *      This program is free software; you can redistribute it and/or modify
@@ -31,7 +31,7 @@
 #define TERMINAL_CMD "xterm -e"
 
 #ifndef __VERSION_MINOR // since menu-cache 0.5.0.
-#warning "If you are running a 0.3.x version of libmenu-cache, you need to compile the 3.6.7 version of openbox-menu"
+#warning "If you are running a 0.3.x version of libmenu-cache, you need to compile the 3.6.7 version of icewm-menu"
 #endif
 
 typedef enum {

@@ -1,4 +1,4 @@
-//      ob_display.c - this file is part of openbox-menu
+//      ob_display.c - this file is part of icewm-menu
 //      Copyright (C) 2010-15 Fabrice THIROUX <fabrice.thiroux@free.fr>
 //
 //      This program is free software; you can redistribute it and/or modify
@@ -268,7 +268,7 @@ menu_display (MenuCache *menu, OB_Menu *context)
 	}
 	else
 	{
-		g_warning ("Menu seems to be empty. Check openbox-menu parameters.");
+		g_warning ("Menu seems to be empty. Check icewm-menu parameters.");
 		context->code = MENU_EMPTY_ERROR;
 	}
 

@@ -5,8 +5,8 @@ CC=gcc
 
 # Comment this line if you don't want icons to appear in menu
 CFLAGS+=-DWITH_ICONS
-# Uncomment this line if Openbox can display SVG icons
-# Check SVG support with '$ ldd /usr/bin/openbox | grep svg', librsvg must appear..
+# Uncomment this line if IceWM can display SVG icons
+# Check SVG support with '$ ldd /usr/bin/icewm | grep svg', librsvg must appear.
 # CFLAGS+=-DWITH_SVG
 
 prefix= /usr/local
@@ -16,24 +16,24 @@ BINDIR= ${DESTDIR}/bin
 SRC= $(shell ls src/*.c 2> /dev/null)
 OBJ= $(SRC:.c=.o)
 
-all: $(OBJ) check openbox-menu
+all: $(OBJ) check icewm-menu
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 
-openbox-menu: $(OBJ)
-	$(CC) $(OBJ) -o openbox-menu $(LDFLAGS) $(LIBS)
+icewm-menu: $(OBJ)
+	$(CC) $(OBJ) -o icewm-menu $(LDFLAGS) $(LIBS)
 
 .PHONY: clean install doc changelog check xmllint
 
 clean:
-	@rm -f $(OBJ) $(TEST_OBJ) openbox-menu check
+	@rm -f $(OBJ) $(TEST_OBJ) icewm-menu check
 	@rm -rf doc
 
 install:
-	@strip -s openbox-menu
-	@install -Dm 755 openbox-menu $(BINDIR)/openbox-menu
+	@strip -s icewm-menu
+	@install -Dm 755 icewm-menu $(BINDIR)/icewm-menu
 
 doc:
 	robodoc --src . --doc doc/ --multidoc --index --html --cmode
